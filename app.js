@@ -63,8 +63,51 @@ var seattleCenter = {
       liEl.textContent = hours[i] + ' - sold ' + Math.floor((seattleCenter.averaageCustomersPerHour(11, 24)) * 3.7) + ' Cookies';
       PatsStore3.appendChild(liEl);
     }
-
   }
 };
 
 seattleCenter.cookiesPerHour();
+
+var PatsStore4 = document.getElementById('capitolHill');
+
+var capitolHill = {
+  minimumCustomers: 20,
+  maximumCustomers: 38,
+  cookiesPer: 2.3,
+  averaageCustomersPerHour: function(minimumCustomers, maximumCustomers) {
+    return Math.floor(Math.random() * (maximumCustomers - minimumCustomers + 1) + minimumCustomers);
+  },
+
+  cookiesPerHour: function() {
+    for (var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = hours[i] + ' - sold ' + Math.floor((capitolHill.averaageCustomersPerHour(20, 38)) * 2.3) + ' Cookies';
+      PatsStore4.appendChild(liEl);
+    }
+  }
+};
+
+capitolHill.cookiesPerHour();
+
+var PatsStore5 = document.getElementById('alki');
+
+var alki = {
+  minimumCustomers: 2,
+  maximumCustomers: 16,
+  cookiesPer: 4.6,
+  averaageCustomersPerHour: function(minimumCustomers, maximumCustomers) {
+    return Math.floor(Math.random() *(maximumCustomers - minimumCustomers + 1) + minimumCustomers);
+
+  },
+
+  cookiesPerHour: function() {
+    for (var i = 0; i < hours.length; i++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = hours[i] + ' - sold ' + Math.floor((alki.averaageCustomersPerHour(20, 38)) * 2.3) + ' Cookies';
+      PatsStore5.appendChild(liEl);
+    }
+
+  }
+}
+
+alki.cookiesPerHour();
