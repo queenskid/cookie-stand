@@ -19,7 +19,7 @@ body {
 
 }
 
-@keyframes example {
+/*@keyframes example {
     0%   {background-image: url(./images/salmon.png);:black; left:0px; top:0px;}
     25%  {background-image: url(./images/salmon.png);:black; left:200px; top:0px;}
     50%  {background-image: url(./images/salmon.png);:black; left:200px; top:200px;}
@@ -41,7 +41,7 @@ body {
     position: relative;
     background-color: lightgray;
     animation-name: example;
-    animation-duration: 4s;
+    animation-duration: 4s;*/
 
 h1 {
   text-align: center;
