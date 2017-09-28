@@ -7,25 +7,34 @@
     <title>Patrick's Sales Data Page</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  <body>
+  <body style="background-image:url('./images/background.jpeg')">
+    <img id="salmonR" src="./images/salmon.png" alt="Yummy Salmon" style="width:225px;height:110px;">
+
     <h1>Pat's Store</h1>
-  <!-- <ul id="firstAndPike">1st and Pike</ul>
-  <ul id="seaTacAirport">SeaTac Airport</ul>
-  <ul id="seattleCenter">Seattle Center</ul>
-  <ul id="capitolHill">Capitol Hill</ul>
-  <ul id="alki">Alki</ul> -->
-
-  <table id='stores'>
-    <!-- <tr>
-      <th>Store Location</th>
-      <th>Minimum Customers</th>
-      <th>Maximum Customers</th>
-      <th>Cookies Sold Per Hour</th>
-      <th>Average Customers Per Hour</th>
+    <img id="salmonL"src="./images/inverted.png" alt="Yummy Salmon" style="width:225px;height:110px;">
 
 
-    </tr> -->
-  </table>
+
+    <form id="form">
+      <fieldset>
+        <legend>Add or Change Locations and Values</legend>
+
+        <label for="Store">Store: </label>
+        <input name="Store" type="text" />
+
+        <label for="Order">Order: </label>
+        <input name="Order" type="text" size="25" />
+
+        <button type="Submit">Submit Order!</button>
+      </fieldset>
+    </form>
+
+
+
+  <h2>Hourly Sales Date by Location</h2>
+  <table id='stores'></table>
+  <p>Above you will find a table containing data of Salmon Cookie sales on all store locations across Seattle. Data has been entered to render information based on store hours of operation.</P>
+
 
 
   <script type="text/javascript" src="app.js">
