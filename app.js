@@ -3,46 +3,68 @@
 var hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am','12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', ];
 var locations = [];
 var storeTable = document.getElementById('stores')
+var totalCookiesArray = [];
+var finalTotal = 0;
 
-function Store(storeLocation, minimumCustomers, maximumCustomers, cookiesPer) {
-  this.storeLocation = storeLocation;
-  this.minimumCustomers = minimumCustomers;
-  this.maximumCustomers = maximumCustomers;
-  this.cookiesPer = cookiesPer;
+
+function Store(storeLocations, minCustomers, maxCustomers, cookiesPerAverage) {
+  this.storeLocations = storeLocations;
+  this.minCustomers = minCustomers;
+  this.maxCustomers = maxCustomers;
+  this.cookiesPerAverage = cookiesPerAverage;
+  this.customersEachHour = [];
   this.cookiesPerHourArray = [];
-  this.cookiesTotal = [];
+  this.totalDailyCookies = 0;
+  this.cookiesPerHour();
   locations.push(this);
 
+};
 
- };
- Store.prototype.customersPerHour = function(){
-   return Math.floor(Math.random() * (this.maximumCustomers - this.minimumCustomers + 1) + this.minimumCustomers);
- };
+Store.prototype.customersPerHour = function() {
+    // for (var i = 0; i < hours.length; i++) {
+      var customers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+      this.customersEachHour.push(customers);
+      return customers;
 
- Store.prototype.cookiesPerHour = function(){
-   return Math.floor(Math.random() * (this.customersPerHour(this.minimumCustomers,this.maximumCustomers)) * this.cookiesPer);
- };
+  // }
+};
 
- Store.prototype.hourlyTotal = function() {
+Store.prototype.cookiesPerHour = function(){
    for (var i = 0; i < hours.length; i++) {
+     var cookies = Math.floor((this.customersPerHour()) * this.cookiesPerAverage);
+     this.cookiesPerHourArray.push(cookies);
+     this.totalDailyCookies = this.totalDailyCookies + cookies;
+  }
+};
 
-
-   }
- };
+function hourlyTotal() {
+   for (var i = 0; i < hours.length; i++) {
+     var storeTotal = 0;
+     for ( var j = 0; j < locations.length; j++) {
+       storeTotal = storeTotal + locations[j].cookiesPerHourArray[i];
+     }
+ totalCookiesArray.push(storeTotal);
+  }
+};
 
 Store.prototype.render = function() {
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
-  tdEl.textContent = this.storeLocation;
+  tdEl.textContent = this.storeLocations;
   trEl.appendChild(tdEl);
 
   for (var i = 0; i < hours.length; i++){
     tdEl = document.createElement('td');
-    tdEl.textContent = this.cookiesPerHour() + ' cookies';
+    tdEl.textContent = this.cookiesPerHourArray[i] + ' cookies';
     trEl.appendChild(tdEl);
     storeTable.appendChild(trEl);
   }
+  var thEl = document.createElement('th');
+  thEl.textContent = this.totalDailyCookies;
+  trEl.appendChild(thEl);
+  storeTable.appendChild(trEl);
 };
+
 
 function makeHeaderRow(){
   var trEl = document.createElement('tr');
@@ -54,36 +76,56 @@ function makeHeaderRow(){
     thEl = document.createElement('th');
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
-    storeTable.appendChild(trEl);
  }
+    thEl = document.createElement('th');
+    thEl.textContent = 'Daily Totals';
+    trEl.appendChild(thEl);
+    storeTable.appendChild(trEl);
+
 };
+
+
 function makeFooterRow(){
  var trEl = document.createElement('tr');
  var thEl = document.createElement('th');
- thEl.textContent = Store.prototype.hourlyTotal();
+ thEl.textContent = 'Totals';
  trEl.appendChild(thEl);
+ storeTable.appendChild(trEl);
 
+ hourlyTotal();
+
+finalTotal = 0
  for (var i = 0; i < hours.length; i++){
    thEl = document.createElement('th');
-   thEl.textContent = cookiesPerHour[i];
+   thEl.textContent = totalCookiesArray[i];
+   finalTotal = finalTotal + totalCookiesArray[i];
    trEl.appendChild(thEl);
    storeTable.appendChild(trEl);
  }
+
+ thEl = document.createElement('th');
+ thEl.textContent = finalTotal;
+ trEl.appendChild(thEl);
+ storeTable.appendChild(trEl);
 };
-
-
-new Store('First And Pike', 23, 65, 6.3);
-new Store('Seatac Airport', 3, 24, 1.2);
-new Store('Seattle Center', 11, 38, 3.7);
-new Store('Capitol Hill', 20, 38, 2.3);
-new Store('Alki', 2, 16, 4.6);
 
 function storeRows(){
   for (var i in locations){
     locations[i].render();
   }
 }
+new Store('First And Pike', 23, 65, 6.3);
+new Store('Seatac Airport', 3, 24, 1.2);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('Capitol Hill', 20, 38, 2.3);
+new Store('Alki', 2, 16, 4.6);
+console.table(locations);
 
 makeHeaderRow();
 storeRows();
 makeFooterRow();
+
+
+// this.random = function(this.minCustomers, this.maxCustomers){
+// return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
+// }
