@@ -3,6 +3,9 @@
 var hours = ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am','12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm', ];
 var locations = [];
 var storeTable = document.getElementById('stores')
+var totalCookiesArray = [];
+var finalTotal = 0;
+
 
 function Store(storeLocations, minCustomers, maxCustomers, cookiesPerAverage) {
   this.storeLocations = storeLocations;
@@ -30,13 +33,17 @@ Store.prototype.cookiesPerHour = function(){
    for (var i = 0; i < hours.length; i++) {
      var cookies = Math.floor((this.customersPerHour()) * this.cookiesPerAverage);
      this.cookiesPerHourArray.push(cookies);
-     this.totalDailyCookies += cookies;
+     this.totalDailyCookies = this.totalDailyCookies + cookies;
   }
 };
 
-Store.prototype.hourlyTotal = function() {
+function hourlyTotal() {
    for (var i = 0; i < hours.length; i++) {
-
+     var storeTotal = 0;
+     for ( var j = 0; j < locations.length; j++) {
+       storeTotal = storeTotal + locations[j].cookiesPerHourArray[i];
+     }
+ totalCookiesArray.push(storeTotal);
   }
 };
 
@@ -52,7 +59,12 @@ Store.prototype.render = function() {
     trEl.appendChild(tdEl);
     storeTable.appendChild(trEl);
   }
+  var thEl = document.createElement('th');
+  thEl.textContent = this.totalDailyCookies;
+  trEl.appendChild(thEl);
+  storeTable.appendChild(trEl);
 };
+
 
 function makeHeaderRow(){
   var trEl = document.createElement('tr');
@@ -76,15 +88,25 @@ function makeHeaderRow(){
 function makeFooterRow(){
  var trEl = document.createElement('tr');
  var thEl = document.createElement('th');
- thEl.textContent = Store.prototype.hourlyTotal();
+ thEl.textContent = 'Totals';
  trEl.appendChild(thEl);
+ storeTable.appendChild(trEl);
 
+ hourlyTotal();
+
+finalTotal = 0
  for (var i = 0; i < hours.length; i++){
    thEl = document.createElement('th');
-   thEl.textContent = cookiesPerHourArray[i];
+   thEl.textContent = totalCookiesArray[i];
+   finalTotal = finalTotal + totalCookiesArray[i];
    trEl.appendChild(thEl);
    storeTable.appendChild(trEl);
  }
+
+ thEl = document.createElement('th');
+ thEl.textContent = finalTotal;
+ trEl.appendChild(thEl);
+ storeTable.appendChild(trEl);
 };
 
 function storeRows(){
@@ -101,8 +123,7 @@ console.table(locations);
 
 makeHeaderRow();
 storeRows();
-
-// makeFooterRow();
+makeFooterRow();
 
 
 // this.random = function(this.minCustomers, this.maxCustomers){
