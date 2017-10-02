@@ -1,0 +1,65 @@
+* {
+  font-family: 'sorkin type' fantasy;
+}
+
+main {
+  margin-left: 230px;
+}
+
+#section {
+  /*padding-left: 200px;*/
+  display: inline;
+  text-align: center;
+  list-style: none;
+}
+
+#pats {
+
+}
+
+#chinook {
+  width: 200px;
+}
+
+#frosted {
+  width: 200px;
+}
+
+#wacky {
+  width: 200px;
+}
+
+#fish {
+  width: 250px;
+  float: left;
+  padding: inherit;
+}
+
+#pats {
+  margin-left: 500px;
+}
+
+#right-clicks {
+  float: right;
+
+}
+
+#right-side-links {
+  margin-top: 0px;
+  margin-left: 660px;
+}
+
+#right-side-links li {
+  display: inline-block;
+  margin-left: 2px;
+  height: 2px;
+
+
+header nav li {
+  list-style: none;
+}
+
+body {
+  /*background: #ccc;*/
+
+}

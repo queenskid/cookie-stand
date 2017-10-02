@@ -6,7 +6,7 @@ var storeTable = document.getElementById('stores')
 var totalCookiesArray = [];
 var finalTotal = 0;
 
-var theForm = document.getElementById('new-location')
+var theForm = document.getElementById('submit')
 var simulatedLocations = document.getElementById('simulated-locations');
 // var inputs = [];
 
@@ -117,7 +117,7 @@ finalTotal = 0
  storeTable.appendChild(trEl);
 };
 
-Store.handleForm = function(e) {
+Store.prototype.handleForm = function(e) {
   e.preventDefault();
   var loc = e.target.locName.value;
   var min = parseInt(e.target.min.value);
