@@ -2,15 +2,16 @@
   font-family: 'sorkin type' fantasy;
 }
 
+header nav li {
+  list-style: none;
+}
+
 main {
   margin-left: 230px;
 }
 
-#section {
-  /*padding-left: 200px;*/
-  display: inline;
-  text-align: center;
-  list-style: none;
+h4 {
+  margin-left: 285px;
 }
 
 #pats {
@@ -40,26 +41,24 @@ main {
 }
 
 #right-clicks {
-  float: right;
+  /*float: right;*/
+  margin-left: 1100px;
 
 }
 
-#right-side-links {
-  margin-top: 0px;
-  margin-left: 660px;
-}
-
-#right-side-links li {
-  display: inline-block;
-  margin-left: 2px;
-  height: 2px;
-
-
-header nav li {
+#section1 {
+  /*padding-left: 200px;*/
+  display: inline;
+  margin-right: 500px
   list-style: none;
 }
 
+#section2 {
+  text-align: center;
+  display: inline-block;
+  list-style: none;
+}
 body {
-  /*background: #ccc;*/
+  background: #ccc;
 
 }

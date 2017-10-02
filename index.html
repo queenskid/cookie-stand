@@ -1,25 +1,15 @@
 <!DOCTYPE html>
 
-<!DOCTYPE html>
-<!-- Continue with your own design that you've started on index.html.
-
-For your design, Pat INSISTS that you must use all of the images in the adjacent asset directory. Every. Single. One.
-
-Your public-facing page mockup in index.html should have all of the things you'd expect such a page to have for such a business: locations with addresses, hours open, contact information, and so us. Just make up versions of these things since this is not a real business, of course.
-
-You can also mock up references to (either links or little sections on the index page) for things like About Us (company history and mission), Merchandise (sales of t-shirts, mugs, stickers, etc.), links to salmon events like the Salmon Days in Issaquah, etc.
-
-Apply a similar style to the sales.html page. -->
 <html>
   <head>
     <meta charset="utf-8">
     <title>Pat's Salmon Cookies</title>
     <link rel="stylesheet" type="text/css" href="style2.css" />
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline" rel="stylesheet">
   </head>
   <body style="background-image:url('./images/background.jpeg')">
 
@@ -28,7 +18,7 @@ Apply a similar style to the sales.html page. -->
   <nav>
     <li><img id="fish" src="./images/salmon.png" alt="Yummy Salmon"></li>
     <ul id="">
-      <li><h1 id="pats">Pat's Salmolicious Cookies</h1></li>
+      <li><h1 id="pats">Pat's Salmon Cookies</h1></li>
     </ul>
 
       <ul id="right-clicks">
@@ -40,13 +30,15 @@ Apply a similar style to the sales.html page. -->
  </header>
 
  <main>
-   <h4>BEST SALMON COOKIES IN TOWN</h4>
+   <div class="static">
+     <h4 id="h4">BEST SALMON COOKIES IN TOWN</h4>
+     <img src="./images/family.jpg" alt="">
 
-   <img src="./images/family.jpg" alt="">
+   </div>
 
  </main>
 
- <section id="section">
+ <section id="section1">
    <h3 id="customer">Customers Favorite</h3>
    <ul>
      <li>The Original Cookie  $3.00</li>
@@ -57,26 +49,24 @@ Apply a similar style to the sales.html page. -->
      <img id="wacky"src="./images/fish.jpg" alt="">
    </ul>
  </section>
-  <h3>Kickass Salmon Shirt (bully proof)</h3>
+
+ <section id="section2">
+
+    <h3>Kickass Salmon Shirt (bully proof)</h3>
     <p>$10.99</p>
-  <img src="./images/shirt.jpg" alt="">
-  <h3>Make your own at home</h3>
+    <img src="./images/shirt.jpg" alt="">
+    <h3>Make your own at home</h3>
     <p>$5.99</p>
-  <img src="./images/cutter.jpeg" alt="">
+    <img src="./images/cutter.jpeg" alt="">
+</section>
 
   <footer>
     <ul>
       <li><img src="./image/van-pic.png" alt=""></li>
       <li><h3>Store Hours</h3></li>
-      <p>Thanks for visiting and trying our nasty cookies. We know you will hate them</p>
+      <p>Thanks for visiting and trying our nasty cookies. We know you will hate them.</p>
       <button type="submit" name="Order Now">Order Now</button>
     </ul>
-
-
   </footer>
-
-</div>
-
-</body>
-
+ </body>
 </html>

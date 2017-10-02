@@ -169,9 +169,5 @@ new Store('Alki', 2, 16, 4.6);
 makeHeaderRow();
 storeRows();
 makeFooterRow();
+handleForm();
 Store.theForm.addEventListener('submit', Store.handleForm);
-
-
-// this.random = function(this.minCustomers, this.maxCustomers){
-// return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
-// }
