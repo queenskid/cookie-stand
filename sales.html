@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -11,17 +9,24 @@
 
    <h1 id="h1">Pat's Store</h1>
 
-   <form id="form">
+   <form id="simulated-locations">
       <fieldset>
-        <legend>Add or Change Locations and Values</legend>
+        <legend>Simulated a New Store Location</legend>
 
-        <label for="Store">Store: </label>
-        <input name="Store" type="text" />
+        <label for="loc">Store: </label>
+        <input name="store" type="text" size="30"/>
 
-        <label for="Order">Order: </label>
-        <input name="Order" type="text" size="25" />
+        <label for="min">Min Customers Per Hour: </label>
+        <input name="min" type="text" size="30" />
 
-        <button type="Submit">Submit Order!</button>
+        <label for="max">Max Customers Per Hour: </label>
+        <input name="max" type="text" size="30" />
+
+        <label for="avg">Average Cookie Sale: </label>
+        <input name="avg" type="text" size="30" />
+
+        <button type="Submit">Create New Store!</button>
+
       </fieldset>
     </form>
 
