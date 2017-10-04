@@ -8,7 +8,7 @@ var finalTotal = 0;
 
 var theForm = document.getElementById('submit')
 var simulatedLocations = document.getElementById('simulated-locations');
-// var inputs = [];
+
 
 function Store(locationName, minCustomers, maxCustomers, cookiesPerAverage) {
   this.locationName = locationName;
@@ -20,17 +20,14 @@ function Store(locationName, minCustomers, maxCustomers, cookiesPerAverage) {
   this.totalDailyCookies = 0;
   this.cookiesPerHour();
   locations.push(this);
-  // Store.all.push(this);
 
 };
 
 Store.prototype.customersPerHour = function() {
-    // for (var i = 0; i < hours.length; i++) {
       var customers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1) + this.minCustomers);
       this.customersEachHour.push(customers);
       return customers;
 
-  // }
 };
 
 Store.prototype.cookiesPerHour = function(){
@@ -68,11 +65,6 @@ Store.prototype.render = function() {
   trEl.appendChild(thEl);
   storeTable.appendChild(trEl);
 };
-
-//Helper function to create random
-// Store.random = function(min, max){
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
 
 function makeHeaderRow(){
   var trEl = document.createElement('tr');
