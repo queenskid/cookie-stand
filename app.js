@@ -117,6 +117,7 @@ finalTotal = 0
  storeTable.appendChild(trEl);
 };
 
+
 Store.prototype.handleForm = function(e) {
   e.preventDefault();
   var loc = e.target.locName.value;
@@ -136,7 +137,6 @@ Store.prototype.handleForm = function(e) {
 
     locations[i].cookiesPerHour();
     clearForm();
-    // Store.render();
     return;
   }
 }
@@ -151,8 +151,6 @@ function clearForm() {
  }
 };
 
-
-
 function storeRows(){
   for (var i in locations){
     locations[i].render();
@@ -164,10 +162,9 @@ new Store('Seatac Airport', 3, 24, 1.2);
 new Store('Seattle Center', 11, 38, 3.7);
 new Store('Capitol Hill', 20, 38, 2.3);
 new Store('Alki', 2, 16, 4.6);
-// console.table(locations);
 
 makeHeaderRow();
 storeRows();
-makeFooterRow();
 handleForm();
-Store.theForm.addEventListener('submit', Store.handleForm);
+makeFooterRow();
+theForm.addEventListener('Submit', handleForm());
