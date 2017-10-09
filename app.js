@@ -6,7 +6,7 @@ var storeTable = document.getElementById('stores')
 var totalCookiesArray = [];
 var finalTotal = 0;
 
-var theForm = document.getElementById('submit')
+var theForm = document.getElementById('Submit')
 var simulatedLocations = document.getElementById('simulated-locations');
 
 
@@ -112,7 +112,7 @@ finalTotal = 0
 
 Store.prototype.handleForm = function(e) {
   e.preventDefault();
-  var loc = e.target.locName.value;
+  var loc = e.target.locationName.value;
   var min = parseInt(e.target.min.value);
   var max = parseInt(e.target.max.value);
   var avg = parseInt(e.target.avg.value);
@@ -130,18 +130,20 @@ Store.prototype.handleForm = function(e) {
     locations[i].cookiesPerHour();
     clearForm();
     return;
+    handleForm();
+    theForm.addEventListener('Submit', handleForm());
+    new Store(loc, min, max, avg);
+    function clearForm() {
+      e.target.locationName.value = null;
+      e.target.min.value = null;
+      e.target.max.value = null;
+      e.target.avg.value = null;
+      Store.render();
+     }
+    };
   }
 }
 
-new Store(loc, min, max, avg);
-function clearForm() {
-  e.target.locName.value = null;
-  e.target.min.value = null;
-  e.target.max.value = null;
-  e.target.avg.value = null;
-  Store.render();
- }
-};
 
 function storeRows(){
   for (var i in locations){
@@ -157,6 +159,4 @@ new Store('Alki', 2, 16, 4.6);
 
 makeHeaderRow();
 storeRows();
-handleForm();
 makeFooterRow();
-theForm.addEventListener('Submit', handleForm());
